@@ -1,0 +1,23 @@
+{% extends 'core/home.html' %}
+
+{% block content %}
+  
+    <div class="d-flex align-items-center justify-content-center" style="min-height: 100vh;">
+        <div class="container text-center">
+          {% if user.is_authenticated %}
+            <h1>Welcome to InterIntel</h1>
+            <p>You are logged as {{ user.username }}</p>
+            <a href="{% url 'logout' %}"  class="btn btn-primary">Logout</a>
+          {% else %}
+          <h1>Welcome to InterIntel</h1>
+           <a href="{% url 'loginPage' %}" class="btn btn-primary">Login</a>
+           <a href="{% url 'registerPage' %}"  class="btn btn-primary">Register</a>
+          {% endif %}
+
+       
+
+        </div>
+    </div>
+
+
+{% endblock %}
